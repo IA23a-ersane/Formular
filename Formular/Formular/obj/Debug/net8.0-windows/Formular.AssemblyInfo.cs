@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Formular")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6895ef2d2cf73518bab637bbb3503e3d4be5c8ce")]
 [assembly: System.Reflection.AssemblyProductAttribute("Formular")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Formular")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
