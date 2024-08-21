@@ -69,14 +69,15 @@ namespace Formular
                     {
                         // Schreibe die Daten der TextBoxen und Labels in die Datei
                         writer.WriteLine("Form Data:");
-                        writer.WriteLine($"Name: {MitarbeiterData.Name}");
                         writer.WriteLine($"Vorname: {MitarbeiterData.Vorname}");
                         writer.WriteLine($"Email: {MitarbeiterData.Email}");
+                        string name = MitarbeiterData.Name;
+                        string uppername = name.ToUpper();
+                        writer.WriteLine($"Name: {uppername}");
                         writer.WriteLine($"Abteilung: {MitarbeiterData.Abteilung}");
                         writer.WriteLine($"Telefonnummer: {MitarbeiterData.Telefonnummer}");
                         writer.WriteLine($"Geburtsdatum: {MitarbeiterData.Geburtsdatum}");
                         writer.WriteLine($"Eintrittsdatum: {MitarbeiterData.Eintrittsdatum}");
-
                     }
                 }
                 catch (Exception ex)
