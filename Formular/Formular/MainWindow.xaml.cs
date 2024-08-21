@@ -60,6 +60,7 @@ namespace Formular
                     string filePath = saveDialog.FileName;
 
                 try
+
                 {
                     // Öffne die Datei zum Schreiben
                     using (StreamWriter writer = new StreamWriter(filePath))
@@ -67,6 +68,13 @@ namespace Formular
                         // Schreibe die Daten der TextBoxen und Labels in die Datei
                         writer.WriteLine("Form Data:");
                         writer.WriteLine($"Name: {MitarbeiterData.Name}");
+                        writer.WriteLine($"Vorname: {MitarbeiterData.Vorname}");
+                        writer.WriteLine($"Email: {MitarbeiterData.Email}");
+                        writer.WriteLine($"Abteilung: {MitarbeiterData.Abteilung}");
+                        writer.WriteLine($"Telefonnummer: {MitarbeiterData.Telefonnummer}");
+                        writer.WriteLine($"Geburtsdatum: {MitarbeiterData.Geburtsdatum}");
+                        writer.WriteLine($"Eintrittsdatum: {MitarbeiterData.Eintrittsdatum}");
+
                     }
                 }
                 catch (Exception ex)
