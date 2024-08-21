@@ -42,29 +42,17 @@ namespace Formular
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-
             SaveFileDialog saveDialog = new SaveFileDialog();
-            
-            
             saveDialog.InitialDirectory = @"C:\Users\user01\OneDrive\Documents";
             saveDialog.Title = "Save Your File Here";
             saveDialog.Filter = "bin files (*.bin)|*.bin|All files (*.*)|*.*";
 
-
-
-
-            Stream fileStream;            
-                if (saveDialog.ShowDialog() ==true)
-                {
-                    // Hole den Pfad der Datei
-                    string filePath = saveDialog.FileName;
+            if (saveDialog.ShowDialog() == true)
+            {
+                string filePath = saveDialog.FileName;
 
                 try
-
                 {
-
-
-                    // Öffne die Datei zum Schreiben
                     using (StreamWriter writer = new StreamWriter(filePath))
                     {
                         // Schreibe die Daten der TextBoxen und Labels in die Datei
@@ -74,21 +62,17 @@ namespace Formular
                         writer.WriteLine($"Email: {MitarbeiterData.Email}");
                         writer.WriteLine($"Abteilung: {MitarbeiterData.Abteilung}");
                         writer.WriteLine($"Telefonnummer: {MitarbeiterData.Telefonnummer}");
-                        writer.WriteLine($"Geburtsdatum: {MitarbeiterData.Geburtsdatum}");
-                        writer.WriteLine($"Eintrittsdatum: {MitarbeiterData.Eintrittsdatum}");
+                        writer.WriteLine($"Geburtsdatum: {MitarbeiterData.Geburtsdatum.ToString("dd.MM.yyyy")}"); // Das Datum wird im Format "dd.MM.yyyy" formatiert, um sicherzustellen, 
+                        writer.WriteLine($"Eintrittsdatum: {MitarbeiterData.Eintrittsdatum.ToString("dd.MM.yyyy")}"); // dass nur das Datum ohne die Uhrzeit gespeichert wird.
 
                     }
                 }
                 catch (Exception ex)
                 {
                     // Zeige eine Fehlermeldung an, falls beim Schreiben der Datei ein Fehler auftritt
-                    MessageBox.Show("Fehler beim Speichern der Datei: ");
+                    MessageBox.Show("Fehler beim Speichern der Datei: " + ex.Message);
                 }
             }
-
-
-
-
 
             string message = MitarbeiterData.Name;
             string m = MitarbeiterData.Email;
