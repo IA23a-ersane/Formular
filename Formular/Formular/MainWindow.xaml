@@ -7,6 +7,10 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
+        <Label x:Name="Name" Content="Name" HorizontalAlignment="Left" Margin="63,87,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="Personalnummer" Content="Personalnummer" HorizontalAlignment="Left" Margin="343,191,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="Eintrittsdatum" Content="Eintrittsdatum" HorizontalAlignment="Left" Margin="63,186,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.726,-0.206"/>
+        <Label x:Name="Vorname" Content="Vorname" HorizontalAlignment="Left" Margin="343,87,0,0" VerticalAlignment="Top"/>
 
     </Grid>
 </Window>
