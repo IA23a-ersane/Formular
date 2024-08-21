@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Formular"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
+    <Grid RenderTransformOrigin="0.561,0.451">
         <Label x:Name="Name" Content="Name" HorizontalAlignment="Left" Margin="68,57,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.583,-1.089"/>
         <Label x:Name="Personalnummer" Content="Personalnummer" HorizontalAlignment="Left" Margin="67,158,0,0" VerticalAlignment="Top"/>
         <Label x:Name="Eintrittsdatum" Content="Eintrittsdatum" HorizontalAlignment="Left" Margin="67,127,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.726,-0.206"/>
