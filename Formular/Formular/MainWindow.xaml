@@ -7,23 +7,24 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <Label x:Name="Name" Content="Name" HorizontalAlignment="Left" Margin="68,57,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.583,-1.089"/>
-        <Label x:Name="Personalnummer" Content="Personalnummer" HorizontalAlignment="Left" Margin="67,158,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="Eintrittsdatum" Content="Eintrittsdatum" HorizontalAlignment="Left" Margin="67,127,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.726,-0.206"/>
-        <Label x:Name="Vorname" Content="Vorname" HorizontalAlignment="Left" Margin="68,96,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.674,-0.38"/>
-        <Label x:Name="Abteilung" Content="Abteilung" HorizontalAlignment="Left" Margin="68,189,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.726,-0.206"/>
-        <Label x:Name="Telefonnummer" Content="Telefonnummer" HorizontalAlignment="Left" Margin="67,251,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.726,-0.206"/>
-        <Label x:Name="Email" Content="Email" HorizontalAlignment="Left" Margin="70,220,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.726,-0.206"/>
-        <Label x:Name="Geburtsdatum" Content="Geburtsdatum" HorizontalAlignment="Left" Margin="68,281,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.726,-0.206"/>
-        <Button x:Name="Speichern" Content="Speichern" HorizontalAlignment="Left" Margin="424,362,0,0" VerticalAlignment="Top" Height="26" Width="115"/>
-        <DatePicker HorizontalAlignment="Left" Margin="181,127,0,0" VerticalAlignment="Top"/>
-        <DatePicker HorizontalAlignment="Left" Margin="181,281,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="NameBox" HorizontalAlignment="Left" Margin="181,61,0,0" TextWrapping="Wrap" Text="Name" VerticalAlignment="Top" Width="120" Foreground="#FFABADB3"/>
-        <TextBox x:Name="TelefonnummerBox" HorizontalAlignment="Left" Margin="181,255,0,0" TextWrapping="Wrap" Text="Telefonnummer" VerticalAlignment="Top" Width="120" Foreground="#FFABADB3"/>
-        <TextBox x:Name="EmailBox" HorizontalAlignment="Left" Margin="181,228,0,0" TextWrapping="Wrap" Text="Email" VerticalAlignment="Top" Width="120" Foreground="#FFABADB3"/>
-        <TextBox x:Name="AbteilungBox" HorizontalAlignment="Left" Margin="181,199,0,0" TextWrapping="Wrap" Text="Abteilung" VerticalAlignment="Top" Width="120" Foreground="#FFABADB3"/>
-        <TextBox x:Name="PersonalnummerBox" HorizontalAlignment="Left" Margin="181,171,0,0" TextWrapping="Wrap" Text="Personalnummer" VerticalAlignment="Top" Width="120" Foreground="#FFABADB3"/>
-        <TextBox x:Name="VornameBox" HorizontalAlignment="Left" Margin="181,91,0,0" TextWrapping="Wrap" Text="Vorname" VerticalAlignment="Top" Width="120" Foreground="#FFABADB3"/>
+        <Label x:Name="Name" Content="Name" HorizontalAlignment="Left" Margin="85,110,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.583,-1.089"/>
+        <Label x:Name="Personalnummer" Content="Personalnummer" HorizontalAlignment="Left" Margin="84,261,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="Eintrittsdatum" Content="Eintrittsdatum" HorizontalAlignment="Left" Margin="84,213,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.726,-0.206"/>
+        <Label x:Name="Vorname" Content="Vorname" HorizontalAlignment="Left" Margin="85,158,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.674,-0.38"/>
+        <Label x:Name="Abteilung" Content="Abteilung" HorizontalAlignment="Left" Margin="482,105,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.726,-0.206"/>
+        <Label x:Name="Telefonnummer" Content="Telefonnummer" HorizontalAlignment="Left" Margin="483,213,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.726,-0.206"/>
+        <Label x:Name="Email" Content="Email" HorizontalAlignment="Left" Margin="486,160,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.726,-0.206"/>
+        <Label x:Name="Geburtsdatum" Content="Geburtsdatum" HorizontalAlignment="Left" Margin="486,261,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.726,-0.206"/>
+        <Button x:Name="Speichern" Content="Speichern" HorizontalAlignment="Center" Margin="0,355,0,0" VerticalAlignment="Top" Height="26" Width="116" IsEnabled="False" Background="White" Foreground="Black" BorderBrush="#FFFCF8F8" Click="Speichern_Click">
+        </Button>
+        <DatePicker HorizontalAlignment="Left" Margin="198,213,0,0" VerticalAlignment="Top"/>
+        <DatePicker HorizontalAlignment="Left" Margin="596,263,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="NameBox" HorizontalAlignment="Left" Margin="198,118,0,0" TextWrapping="Wrap" Text="Name" VerticalAlignment="Top" Width="120" Foreground="#FFABADB3"/>
+        <TextBox x:Name="TelefonnummerBox" HorizontalAlignment="Left" Margin="596,216,0,0" TextWrapping="Wrap" Text="Telefonnummer" VerticalAlignment="Top" Width="120" Foreground="#FFABADB3"/>
+        <TextBox x:Name="EmailBox" HorizontalAlignment="Left" Margin="596,161,0,0" TextWrapping="Wrap" Text="Email" VerticalAlignment="Top" Width="120" Foreground="#FFABADB3"/>
+        <TextBox x:Name="AbteilungBox" HorizontalAlignment="Left" Margin="596,118,0,0" TextWrapping="Wrap" Text="Abteilung" VerticalAlignment="Top" Width="120" Foreground="#FFABADB3"/>
+        <TextBox x:Name="PersonalnummerBox" HorizontalAlignment="Left" Margin="198,269,0,0" TextWrapping="Wrap" Text="Personalnummer" VerticalAlignment="Top" Width="120" Foreground="#FFABADB3"/>
+        <TextBox x:Name="VornameBox" HorizontalAlignment="Left" Margin="198,163,0,0" TextWrapping="Wrap" Text="Vorname" VerticalAlignment="Top" Width="120" Foreground="#FFABADB3"/>
 
     </Grid>
 </Window>
