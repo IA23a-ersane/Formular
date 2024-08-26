@@ -54,38 +54,16 @@
 
         <TextBox x:Name="TelefonnummerBox" HorizontalAlignment="Left" Margin="181,146,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Foreground="#FFABADB3" Text="{Binding Path=Telefonnummer, Mode=TwoWay}"    />
 
-        <TextBox x:Name="EmailBox" HorizontalAlignment="Left" Margin="181,120,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120" Foreground="#FFABADB3"
-
+        <TextBox x:Name="TelefonnummerBox" HorizontalAlignment="Left" Margin="181,255,0,0" TextWrapping="Wrap" Text="Telefonnummer" VerticalAlignment="Top" Width="120" Foreground="#FFABADB3"/>
+        
+        <TextBox x:Name="EmailBox" HorizontalAlignment="Left" Margin="181,228,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120" Foreground="#FFABADB3"
                Text="{Binding Path=Email, Mode=TwoWay}"    
-
                  />
-
-
-        <TextBox x:Name="VornameBox" HorizontalAlignment="Left" Margin="181,91,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Foreground="#FFABADB3" TextChanged="VornameBox_TextChanged" 
-
-                    Text="{Binding Path=Vorname, Mode=TwoWay}"/>
-
-        <CheckBox Content="Kullanıcı Sözleşmesi'nı ve Gizlilik Politikası'nı okudum ve kabul ediyorum" HorizontalAlignment="Left" Margin="56,342,0,0" VerticalAlignment="Top" Checked="CheckBox_Checked"/>
-
-        <Image HorizontalAlignment="Left" Height="253" Margin="450,39,0,0" VerticalAlignment="Top" Width="213" Source="/image-removebg-preview (2).png"/>
-
-
-        <UniformGrid Rows="6" Columns="1" HorizontalAlignment="Left" Margin="520,187,0,0" VerticalAlignment="Top">
-            <CheckBox Content="Kale Arkası" IsChecked="{Binding Path=IsKaleArkasiSelected, Mode=TwoWay}" Background="#FF439CC0"/>
-            <CheckBox Content="Misafir" IsChecked="{Binding Path=IsMisafirSelected, Mode=TwoWay}" Background="#FF8B1D61"/>
-            <CheckBox Content="Üst Kat" IsChecked="{Binding Path=IsUstKatSelected, Mode=TwoWay}" Background="#FFD72424"/>
-            <CheckBox Content="Alt Kat" IsChecked="{Binding Path=IsAltKatSelected, Mode=TwoWay}" Background="#FFD7C131"/>
-            <CheckBox Content="VIP and Club Level" IsChecked="{Binding Path=IsVIPAndClubLevelSelected, Mode=TwoWay}" Background="#FF3EC14D"/>
-        </UniformGrid>
-        <Image x:Name="ImageToggle" 
-       HorizontalAlignment="Left" 
-       Height="49" 
-       Margin="710,10,0,0" 
-       VerticalAlignment="Top" 
-       Width="52" 
-       Source="/image-removebg-preview (4).png" 
-       RenderTransformOrigin="1.154,0.884" 
-       MouseDown="ImageToggle_MouseDown"/>
+        
+        
+        <TextBox x:Name="AbteilungBox" HorizontalAlignment="Left" Margin="181,199,0,0" TextWrapping="Wrap" Text="Abteilung" VerticalAlignment="Top" Width="120" Foreground="#FFABADB3"/>
+        <TextBox x:Name="PersonalnummerBox" HorizontalAlignment="Left" Margin="181,171,0,0" TextWrapping="Wrap" Text="Personalnummer" VerticalAlignment="Top" Width="120" Foreground="#FFABADB3"/>
+        <TextBox x:Name="VornameBox" HorizontalAlignment="Left" Margin="181,91,0,0" TextWrapping="Wrap" Text="Vorname" VerticalAlignment="Top" Width="120" Foreground="#FFABADB3" TextChanged="VornameBox_TextChanged"/>
 
     </Grid>
 
