@@ -15,7 +15,7 @@ namespace Formular
 
         public string Vorname { get; set; }
 
-        public DateTime Eintrittsdatum { get; set; }
+        public DateTime Eintrittsdatum { get; set; } = DateTime.Now;
 
 
         public int Personalnummer { get; set; }
@@ -26,13 +26,13 @@ namespace Formular
 
         public string Telefonnummer { get; set; }
 
-        public DateTime Geburtsdatum { get; set; }
+        public DateTime Geburtsdatum { get; set; } = DateTime.Now;
 
 
 
 
         // public Mitarbeiter(string name, string vorname, DateTime eintrittsdatum, int personalnummer,
-         //              string abteilung, string email, string telefonnummer, DateTime geburtsdatum)
+        //              string abteilung, string email, string telefonnummer, DateTime geburtsdatum)
         //{
         //    Name = name;
         //    Vorname = vorname;
@@ -40,8 +40,8 @@ namespace Formular
         //    Personalnummer = personalnummer;
         //    Abteilung = abteilung;
         //    Email = email;
-            //Telefonnummer = telefonnummer;
-          //  Geburtsdatum = geburtsdatum;
+        //Telefonnummer = telefonnummer;
+        //  Geburtsdatum = geburtsdatum;
         //}
 
 
