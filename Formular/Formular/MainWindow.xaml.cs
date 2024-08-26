@@ -32,7 +32,8 @@ namespace Formular
                         string imagePath = System.IO.Path.ChangeExtension(filePath, ".png");
                         qrCodeImage.Save(imagePath, ImageFormat.Png);
                         System.Windows.MessageBox.Show($"QR-Code gespeichert unter: {imagePath}");
-                        return imagePath; 
+                        return imagePath;
+                    }
                 }
             }
         }
@@ -289,14 +290,14 @@ namespace Formular
                     From = new MailAddress("acikgozyagmur2007@gmail.com"), // Absendert
                     Subject = subject,
                     Body = body,
-                    IsBodyHtml = false 
+                    IsBodyHtml = false
                 };
-                message.To.Add(new MailAddress(toEmail)); 
+                message.To.Add(new MailAddress(toEmail));
 
                 // Konfiguriere den SMTP-Client
-                using (SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587)) 
+                using (SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587))
                 {
-                    smtp.EnableSsl = true; 
+                    smtp.EnableSsl = true;
                     smtp.UseDefaultCredentials = false;
                     smtp.Credentials = new NetworkCredential("acikgozyagmur2007@gmail.com", "olpd omyk ufsk lubh"); // App - Passwort 
                     smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
@@ -366,9 +367,5 @@ namespace Formular
             }
         }
 
-
-
     }
-
-
 }
