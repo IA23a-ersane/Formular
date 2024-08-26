@@ -8,4 +8,18 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="image-removebg-preview %282%29.png" />
+    <None Remove="image-removebg-preview %284%29.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="QRCoder" Version="1.6.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="image-removebg-preview (2).png" />
+    <Resource Include="image-removebg-preview (4).png" />
+  </ItemGroup>
+
 </Project>

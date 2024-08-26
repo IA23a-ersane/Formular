@@ -1,68 +1,93 @@
 ﻿<Window x:Class="Formular.MainWindow"
+
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+
         xmlns:local="clr-namespace:Formular"
+
         mc:Ignorable="d"
+
         Title="MainWindow" Height="450" Width="800">
+
     <Grid RenderTransformOrigin="0.561,0.451">
-        <Label x:Name="Name" Content="Name" HorizontalAlignment="Left" Margin="68,57,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.583,-1.089"/>
 
 
-
-        <Label x:Name="Personalnummer" Content="Personalnummer" HorizontalAlignment="Left" Margin="67,158,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="Eintrittsdatum" Content="Eintrittsdatum" HorizontalAlignment="Left" Margin="67,127,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.726,-0.206"/>
-        
-        
-        <Label x:Name="Vorname" Content="Vorname" HorizontalAlignment="Left" Margin="68,96,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.674,-0.38"/>
-        
-       
-        
-        <Label x:Name="Abteilung" Content="Abteilung" HorizontalAlignment="Left" Margin="68,189,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.726,-0.206"/>
-        
-        <Label x:Name="Telefonnummer" Content="Telefonnummer" HorizontalAlignment="Left" Margin="67,251,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.726,-0.206"/>
-
-        <Label x:Name="Email" Content="Email" HorizontalAlignment="Left" Margin="70,220,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.726,-0.206"/>
+        <Label x:Name="Name" Content="Soyad" HorizontalAlignment="Left" Margin="68,57,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.583,-1.089"/>
 
 
-        <Label x:Name="Geburtsdatum" Content="Geburtsdatum" HorizontalAlignment="Left" Margin="68,281,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.726,-0.206"/>
+        <Label x:Name="Ad" Content="Ad" HorizontalAlignment="Left" Margin="68,87,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.674,-0.38"/>
 
-        <Button x:Name="Speichern" Content="Speichern" HorizontalAlignment="Left" Margin="424,362,0,0" VerticalAlignment="Top" Height="26" Width="115" Click="Button_Click"/>
+        <Label x:Name="Telefonnummer" Content="Telefon numarasi" HorizontalAlignment="Left" Margin="68,142,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.726,-0.206"/>
 
-        <DatePicker HorizontalAlignment="Left" Margin="181,127,0,0" VerticalAlignment="Top"/>
-        
-        <DatePicker HorizontalAlignment="Left" Margin="181,281,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="Email" Content="E-Postasi" HorizontalAlignment="Left" Margin="68,113,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.726,-0.206"/>
 
+
+        <Label x:Name="Geburtsdatum" Content="Doğum tarihi" HorizontalAlignment="Left" Margin="68,173,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.726,-0.206"/>
+
+        <Button x:Name="Speichern" Content="Speichern" HorizontalAlignment="Left" Margin="424,380,0,0" VerticalAlignment="Top" Height="26" Width="115" Click="Button_Click"/>
+
+        <DatePicker HorizontalAlignment="Left" Margin="181,175,0,0" VerticalAlignment="Top"/>
 
 
 
         <TextBox x:Name="NameBox" 
+
          HorizontalAlignment="Left" 
+
          Margin="181,61,0,0" 
+
          TextWrapping="Wrap" 
+
          VerticalAlignment="Top" 
+
          Width="120" 
+
          Foreground="#FFABADB3"
+
          Text="{Binding Path=Name, Mode=TwoWay}" />
 
 
+        <TextBox x:Name="TelefonnummerBox" HorizontalAlignment="Left" Margin="181,146,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Foreground="#FFABADB3" Text="{Binding Path=Telefonnummer, Mode=TwoWay}"    />
 
-        <TextBox x:Name="TelefonnummerBox" HorizontalAlignment="Left" Margin="181,255,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Foreground="#FFABADB3" Text="{Binding Path=Telefonnummer, Mode=TwoWay}"    />
+        <TextBox x:Name="EmailBox" HorizontalAlignment="Left" Margin="181,120,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120" Foreground="#FFABADB3"
 
-        <TextBox x:Name="EmailBox" HorizontalAlignment="Left" Margin="181,228,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120" Foreground="#FFABADB3"
                Text="{Binding Path=Email, Mode=TwoWay}"    
+
                  />
 
 
-        <TextBox x:Name="AbteilungBox" HorizontalAlignment="Left" Margin="181,199,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Foreground="#FFABADB3" Text="{Binding Path=Abteilung, Mode=TwoWay}"
-                 />
-        <TextBox x:Name="PersonalnummerBox" HorizontalAlignment="Left" Margin="181,171,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120" Foreground="#FFABADB3" Text="{Binding Path=Personalnummer, Mode=TwoWay}"/>
-        
-        
-        
         <TextBox x:Name="VornameBox" HorizontalAlignment="Left" Margin="181,91,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Foreground="#FFABADB3" TextChanged="VornameBox_TextChanged" 
+
                     Text="{Binding Path=Vorname, Mode=TwoWay}"/>
 
+        <CheckBox Content="Kullanıcı Sözleşmesi'nı ve Gizlilik Politikası'nı okudum ve kabul ediyorum" HorizontalAlignment="Left" Margin="56,342,0,0" VerticalAlignment="Top" Checked="CheckBox_Checked"/>
+
+        <Image HorizontalAlignment="Left" Height="253" Margin="450,39,0,0" VerticalAlignment="Top" Width="213" Source="/image-removebg-preview (2).png"/>
+
+
+        <UniformGrid Rows="6" Columns="1" HorizontalAlignment="Left" Margin="520,187,0,0" VerticalAlignment="Top">
+            <CheckBox Content="Kale Arkası" IsChecked="{Binding Path=IsKaleArkasiSelected, Mode=TwoWay}" Background="#FF439CC0"/>
+            <CheckBox Content="Misafir" IsChecked="{Binding Path=IsMisafirSelected, Mode=TwoWay}" Background="#FF8B1D61"/>
+            <CheckBox Content="Üst Kat" IsChecked="{Binding Path=IsUstKatSelected, Mode=TwoWay}" Background="#FFD72424"/>
+            <CheckBox Content="Alt Kat" IsChecked="{Binding Path=IsAltKatSelected, Mode=TwoWay}" Background="#FFD7C131"/>
+            <CheckBox Content="VIP and Club Level" IsChecked="{Binding Path=IsVIPAndClubLevelSelected, Mode=TwoWay}" Background="#FF3EC14D"/>
+        </UniformGrid>
+        <Image x:Name="ImageToggle" 
+       HorizontalAlignment="Left" 
+       Height="49" 
+       Margin="710,10,0,0" 
+       VerticalAlignment="Top" 
+       Width="52" 
+       Source="/image-removebg-preview (4).png" 
+       RenderTransformOrigin="1.154,0.884" 
+       MouseDown="ImageToggle_MouseDown"/>
+
     </Grid>
+
 </Window>
+
