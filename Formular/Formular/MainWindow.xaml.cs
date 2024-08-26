@@ -308,6 +308,7 @@ namespace Formular
 
             }
             catch (SmtpException ex)
+
             {
                 return $"SMTP Error: {ex.Message}";
             }
