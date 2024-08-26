@@ -12,6 +12,7 @@ using QRCoder;
 using static QRCoder.PayloadGenerator;
 using System.Net.Mail;
 using System.Net;
+using Microsoft.EntityFrameworkCore;
 
 namespace Formular
 {
@@ -19,7 +20,7 @@ namespace Formular
     {
         private bool isTurkish = true;
 
-        private void GenerateQRCode(string content, string filePath)
+        private string GenerateQRCode(string content, string filePath)
         {
             using (QRCodeGenerator qrGenerator = new QRCodeGenerator())
             {
@@ -31,10 +32,11 @@ namespace Formular
                         string imagePath = System.IO.Path.ChangeExtension(filePath, ".png");
                         qrCodeImage.Save(imagePath, ImageFormat.Png);
                         System.Windows.MessageBox.Show($"QR-Code gespeichert unter: {imagePath}");
-                    }
+                        return imagePath; 
                 }
             }
         }
+
 
         public User UserData { get; set; }
 
@@ -85,6 +87,7 @@ namespace Formular
             if (saveDialog.ShowDialog() == true)
             {
                 string filePath = saveDialog.FileName;
+                string imagePath = null; // ImagePath initialisieren
 
                 try
                 {
@@ -144,20 +147,20 @@ namespace Formular
                             ? $"Soyad: {UserData.Name}\nAd: {UserData.Vorname}\nE-Postasi: {UserData.Email}\nTelefon numarasi: {UserData.Telefonnummer}\nDoğum tarihi: {UserData.Geburtsdatum.ToString("dd.MM.yyyy")}"
                             : $"Nachname: {UserData.Name}\nVorname: {UserData.Vorname}\nE-Mail: {UserData.Email}\nTelefonnummer: {UserData.Telefonnummer}\nGeburtsdatum: {UserData.Geburtsdatum.ToString("dd.MM.yyyy")}";
 
-                        GenerateQRCode(qrCodeContent, filePath);
+                        imagePath = GenerateQRCode(qrCodeContent, filePath); // Bildpfad speichern
                     }
                 }
                 catch (Exception ex)
                 {
                     System.Windows.MessageBox.Show(isTurkish ? "Dosya kaydedilirken bir hata oluştu: " : "Fehler beim Speichern der Datei: " + ex.Message);
                 }
-                
+
                 // Nach dem Speichern der Datei eine E-Mail senden
                 string emailContent = isTurkish
                     ? $"Soyad: {UserData.Name}\nAd: {UserData.Vorname}\nE-Postasi: {UserData.Email}\nTelefon numarasi: {UserData.Telefonnummer}\nDoğum tarihi: {UserData.Geburtsdatum.ToString("dd.MM.yyyy")}\nBölge: {UserData.IsAltKatSelected}"
                     : $"Nachname: {UserData.Name}\nVorname: {UserData.Vorname}\nE-Mail: {UserData.Email}\nTelefonnummer: {UserData.Telefonnummer}\nGeburtsdatum: {UserData.Geburtsdatum.ToString("dd.MM.yyyy")}";
 
-                string result = SendEmail(UserData.Email, "Ihre Benutzerdaten", emailContent);
+                string result = SendEmailWithAttachment(UserData.Email, "Ihre Benutzerdaten", emailContent, imagePath);
                 if (result == "success")
                 {
                     System.Windows.MessageBox.Show(isTurkish ? "E-posta başarıyla gönderildi." : "E-Mail wurde erfolgreich gesendet.");
@@ -168,6 +171,8 @@ namespace Formular
                 }
             }
         }
+
+
 
         private bool IsValidEmail(string email)
         {
@@ -275,10 +280,6 @@ namespace Formular
         }
 
 
-
-
-
-
         private string SendEmail(string toEmail, string subject, string body)
         {
             try
@@ -292,8 +293,6 @@ namespace Formular
                 };
                 message.To.Add(new MailAddress(toEmail)); 
 
-
-
                 // Konfiguriere den SMTP-Client
                 using (SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587)) 
                 {
@@ -302,14 +301,11 @@ namespace Formular
                     smtp.Credentials = new NetworkCredential("acikgozyagmur2007@gmail.com", "olpd omyk ufsk lubh"); // App - Passwort 
                     smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
                     smtp.Send(message);
-
                 }
 
                 return "success";
-
             }
             catch (SmtpException ex)
-
             {
                 return $"SMTP Error: {ex.Message}";
             }
@@ -318,6 +314,58 @@ namespace Formular
                 return $"General Error: {ex.Message}";
             }
         }
+
+        private string SendEmailWithAttachment(string toEmail, string subject, string body, string attachmentPath)
+        {
+            try
+            {
+                MailMessage message = new MailMessage
+                {
+                    From = new MailAddress("acikgozyagmur2007@gmail.com"),
+                    Subject = subject,
+                    Body = body,
+                    IsBodyHtml = false
+                };
+
+                // Füge die Empfängeradresse hinzu
+                message.To.Add(new MailAddress(toEmail));
+
+                // Füge den Anhang hinzu, wenn der Pfad angegeben ist
+                if (!string.IsNullOrEmpty(attachmentPath))
+                {
+                    // Überprüfe, ob die Datei existiert
+                    if (File.Exists(attachmentPath))
+                    {
+                        Attachment attachment = new Attachment(attachmentPath);
+                        message.Attachments.Add(attachment);
+                    }
+                    else
+                    {
+                        return "Error: The file does not exist.";
+                    }
+                }
+
+                using (SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587)) // SMTP-Server und Port für Gmail
+                {
+                    smtp.EnableSsl = true; // SSL/TLS aktivieren
+                    smtp.UseDefaultCredentials = false;
+                    smtp.Credentials = new NetworkCredential("acikgozyagmur2007@gmail.com", "olpd omyk ufsk lubh"); // Dein Passwort oder App-Passwort
+                    smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
+                    smtp.Send(message);
+                }
+
+                return "success";
+            }
+            catch (SmtpException ex)
+            {
+                return $"SMTP Error: {ex.StatusCode} - {ex.Message}";
+            }
+            catch (Exception ex)
+            {
+                return $"General Error: {ex.Message}";
+            }
+        }
+
 
 
     }
