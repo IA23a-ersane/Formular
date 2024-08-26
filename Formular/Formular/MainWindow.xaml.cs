@@ -94,5 +94,10 @@ namespace Formular
         {
 
         }
+
+        private void NameBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            
+        }
     }
 }

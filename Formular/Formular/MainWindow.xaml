@@ -37,17 +37,23 @@
          VerticalAlignment="Top" 
          Width="120" 
          Foreground="#FFABADB3"
-         Text="{Binding Path=Name, Mode=TwoWay}" />
+         Text="{Binding Path=Name, Mode=TwoWay}" TextChanged="NameBox_TextChanged_1" />
 
 
 
         <TextBox x:Name="TelefonnummerBox" HorizontalAlignment="Left" Margin="181,255,0,0" TextWrapping="Wrap" Text="Telefonnummer" VerticalAlignment="Top" Width="120" Foreground="#FFABADB3"/>
-        
-        <TextBox x:Name="EmailBox" HorizontalAlignment="Left" Margin="181,228,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120" Foreground="#FFABADB3"
-               Text="{Binding Path=Email, Mode=TwoWay}"    
-                 />
-        
-        
+
+        <TextBox x:Name="EmailBox" 
+         HorizontalAlignment="Left" 
+         Margin="181,228,0,0" 
+         TextWrapping="Wrap"  
+         VerticalAlignment="Top" 
+         Width="120" 
+         Foreground="#FFABADB3"
+         TextChanged="EmailBox_TextChanged" />
+
+
+
         <TextBox x:Name="AbteilungBox" HorizontalAlignment="Left" Margin="181,199,0,0" TextWrapping="Wrap" Text="Abteilung" VerticalAlignment="Top" Width="120" Foreground="#FFABADB3"/>
         <TextBox x:Name="PersonalnummerBox" HorizontalAlignment="Left" Margin="181,171,0,0" TextWrapping="Wrap" Text="Personalnummer" VerticalAlignment="Top" Width="120" Foreground="#FFABADB3"/>
         <TextBox x:Name="VornameBox" HorizontalAlignment="Left" Margin="181,91,0,0" TextWrapping="Wrap" Text="Vorname" VerticalAlignment="Top" Width="120" Foreground="#FFABADB3" TextChanged="VornameBox_TextChanged"/>
