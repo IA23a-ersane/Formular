@@ -156,10 +156,25 @@ namespace Formular
                     System.Windows.MessageBox.Show(isTurkish ? "Dosya kaydedilirken bir hata oluştu: " : "Fehler beim Speichern der Datei: " + ex.Message);
                 }
 
+                string selectedRegion = isTurkish ? "Bölge: " : "Region: ";
+
+                if (UserData.IsMisafirSelected)
+                    selectedRegion += isTurkish ? "Misafir" : "Gast";
+                else if (UserData.IsKaleArkasiSelected)
+                    selectedRegion += isTurkish ? "Kale Arkası" : "Hinter Tor";
+                else if (UserData.IsUstKatSelected)
+                    selectedRegion += isTurkish ? "Üst Kat" : "Oben";
+                else if (UserData.IsAltKatSelected)
+                    selectedRegion += isTurkish ? "Alt Kat" : "Unten";
+                else if (UserData.IsVIPAndClubLevelSelected)
+                    selectedRegion += isTurkish ? "VIP ve Club Levssel" : "VIP und Club Level";
+                else
+                    selectedRegion += isTurkish ? "Keine Auswahl" : "Keine Auswahl";
+
                 // Nach dem Speichern der Datei eine E-Mail senden
                 string emailContent = isTurkish
-                    ? $"Soyad: {UserData.Name}\nAd: {UserData.Vorname}\nE-Postasi: {UserData.Email}\nTelefon numarasi: {UserData.Telefonnummer}\nDoğum tarihi: {UserData.Geburtsdatum.ToString("dd.MM.yyyy")}\nBölge: {UserData.IsAltKatSelected}"
-                    : $"Nachname: {UserData.Name}\nVorname: {UserData.Vorname}\nE-Mail: {UserData.Email}\nTelefonnummer: {UserData.Telefonnummer}\nGeburtsdatum: {UserData.Geburtsdatum.ToString("dd.MM.yyyy")}";
+                    ? $"Soyad: {UserData.Name}\nAd: {UserData.Vorname}\nE-Postasi: {UserData.Email}\nTelefon numarasi: {UserData.Telefonnummer}\nDoğum tarihi: {UserData.Geburtsdatum.ToString("dd.MM.yyyy")} {selectedRegion}"
+                    : $"Nachname: {UserData.Name}\nVorname: {UserData.Vorname}\nE-Mail: {UserData.Email}\nTelefonnummer: {UserData.Telefonnummer}\nGeburtsdatum: {UserData.Geburtsdatum.ToString("dd.MM.yyyy")}{selectedRegion}";
 
                 string result = SendEmailWithAttachment(UserData.Email, "Ihre Benutzerdaten", emailContent, imagePath);
                 if (result == "success")
