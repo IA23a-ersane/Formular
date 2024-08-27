@@ -10,11 +10,17 @@ namespace Formular
     public class UserDB : DbContext
     {
         public DbSet<User> Users { get; set; }
+        public DbSet<Spiel> Spiele
+        {
+            get; set;
+        }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer(@"Server=YAGMUR\SQLEXPRESS;Database=UserDb;Trusted_Connection=True;TrustServerCertificate=True;");
         }
+
+      
     }
 
 
